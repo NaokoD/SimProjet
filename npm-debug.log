@@ -7,7 +7,7 @@
 6 silly lifecycle @~preserve: no script for preserve, continuing
 7 info lifecycle @~serve: @
 8 verbose lifecycle @~serve: unsafe-perm in lifecycle true
-9 verbose lifecycle @~serve: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/ludo/Desktop/POE/SimProjet/node_modules/.bin:/home/ludo/activator-dist-1.3.7:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/bin:/home/ludo/.rbenv/shims:/home/ludo/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jdk1.8.0_72/bin:/usr/local/java/jdk1.8.0_72/jre/bin
+9 verbose lifecycle @~serve: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/ludo/Desktop/POE/SimProjet/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jdk1.8.0_72/bin:/usr/local/java/jdk1.8.0_72/jre/bin
 10 verbose lifecycle @~serve: CWD: /home/ludo/Desktop/POE/SimProjet
 11 silly lifecycle @~serve: Args: [ '-c', 'gulp serve' ]
 12 silly lifecycle @~serve: Returned: code: 1  signal: null
@@ -24,7 +24,7 @@
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid @
 16 verbose cwd /home/ludo/Desktop/POE/SimProjet
-17 error Linux 3.16.0-38-generic
+17 error Linux 4.4.0-21-generic
 18 error argv "/usr/bin/nodejs" "/usr/local/bin/npm" "run" "serve"
 19 error node v7.0.0
 20 error npm  v3.10.9
