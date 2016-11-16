@@ -8,7 +8,7 @@ class ModalsController {
     //   this.categorie=response.data.categories;
     // });
     this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    $scope.showAdvanced = function (ev, obj) {
+    $scope.showAdvanced = function(ev, obj) {
       $mdDialog.show({
         locals: {
           categorie: obj
@@ -29,13 +29,13 @@ class ModalsController {
 
     function DialogController($scope, $mdDialog, categorie) {
       $scope.categorie = categorie;
-      $scope.hide = function () {
+      $scope.hide = function() {
         $mdDialog.hide();
       };
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $mdDialog.cancel();
       };
-      $scope.answer = function (answer) {
+      $scope.answer = function(answer) {
         $mdDialog.hide(answer);
       };
     }

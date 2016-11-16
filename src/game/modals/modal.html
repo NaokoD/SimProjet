@@ -1,19 +1,20 @@
 <md-dialog aria-label="Ludo">
-    <form ng-cloak>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="./app/angular/img/close.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-        <md-dialog-content>
-            <div class="md-dialog-content">
-              <h1>{{ categorie }}</h1>
-            </div>
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-        </md-dialog-actions>
-    </form>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>{{ categorie }}</h1>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="./app/angular/img/close.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <h2>ludo</h2>
+    </md-dialog-actions>
+  </form>
 </md-dialog>

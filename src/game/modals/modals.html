@@ -1,8 +1,5 @@
 <div class="md-padding" id="popupContainer" layout="row" ng-cloak>
-    <div ng-repeat="categorie in $ctrl.categories" categorie="categorie" flex="10">
-      <md-button class="md-raised md-primary" ng-click="showAdvanced($event, categorie)">{{ categorie }}</md-button>
-    <!-- <div ng-repeat="categorie in $ctrl.categories" flex="10">
-        <p>{{categorie}}</p>
-    </div> -->
+  <div ng-repeat="categorie in $ctrl.categories" categorie="categorie" flex="10">
+    <md-button class="md-raised md-primary" ng-click="showAdvanced($event, categorie)">{{ categorie }}</md-button>
   </div>
 </div>
