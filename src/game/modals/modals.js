@@ -36,16 +36,23 @@ class DialogController {
     // $http.get('/categories').then(function(response){
     //   this.categorie=response.data.categories;
     // });
-    $scope.categories = [{libelle: 'Education', budget: 50},
-                          {libelle: 'Sante', budget: 20},
-                          {libelle: 'Securite', budget: 20}];
-    $scope.hide = function () {
+    $scope.categories = [{
+      libelle: 'Education',
+      budget: 50
+    }, {
+      libelle: 'Sante',
+      budget: 20
+    }, {
+      libelle: 'Securite',
+      budget: 20
+    }];
+    $scope.hide = function() {
       $mdDialog.hide();
     };
-    $scope.cancel = function () {
+    $scope.cancel = function() {
       $mdDialog.cancel();
     };
-    $scope.answer = function (answer) {
+    $scope.answer = function(answer) {
       $mdDialog.hide(answer);
     };
   }
