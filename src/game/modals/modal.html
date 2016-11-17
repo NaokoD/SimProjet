@@ -2,7 +2,6 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h1>{{ categorie }}</h1>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="./static/img/close.svg" aria-label="Close dialog"></md-icon>
@@ -10,11 +9,22 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div class="md-dialog-content">
+      <div ng-if="categorie!='All'" class="md-dialog-content">
+        <h1>{{ categorie }}</h1>
+        <h2>{{ budget }}</h2>
+      </div>
+      <div ng-if="categorie=='All'" class="md-dialog-content">
+        <md-slider-container ng-repeat="categorie in categories">
+          <span>{{ categorie.libelle }}</span>
+          <md-slider flex="" min="O" max="100" ng-model="categorie.budget" aria-label="{{ categorie.libelle }}" id="{{ categorie.libelle }}-slider">
+          </md-slider>
+          <md-input-container>
+            <input flex="" type="number" ng-model="categorie.budget" aria-label="{{ categorie.libelle }}" aria-controls="{{ categorie.libelle }}-slider">
+          </md-input-container>
+        </md-slider-container>
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row">
-      <h2>ludo</h2>
     </md-dialog-actions>
   </form>
 </md-dialog>

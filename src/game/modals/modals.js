@@ -8,7 +8,7 @@ class ModalsController {
     //   this.categorie=response.data.categories;
     // });
     this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    $scope.showAdvanced = function(ev, obj) {
+    $scope.showAdvanced = function (ev, obj) {
       $mdDialog.show({
         locals: {
           categorie: obj
@@ -26,19 +26,35 @@ class ModalsController {
       //   this.status = 'You cancelled the dialog.';
       // });
     };
+  }
+}
 
-    function DialogController($scope, $mdDialog, categorie) {
-      $scope.categorie = categorie;
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
-      $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
-      };
-    }
+class DialogController {
+  constructor($scope, $mdDialog, categorie) {
+    $scope.categorie = categorie;
+    $scope.budget = 14000;
+    // $http.get('/categories').then(function(response){
+    //   this.categorie=response.data.categories;
+    // });
+    $scope.categories = [{
+      libelle: 'Education',
+      budget: 50
+    }, {
+      libelle: 'Sante',
+      budget: 20
+    }, {
+      libelle: 'Securite',
+      budget: 20
+    }];
+    $scope.hide = function () {
+      $mdDialog.hide();
+    };
+    $scope.cancel = function () {
+      $mdDialog.cancel();
+    };
+    $scope.answer = function (answer) {
+      $mdDialog.hide(answer);
+    };
   }
 }
 
