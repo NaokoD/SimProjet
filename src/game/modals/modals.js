@@ -8,7 +8,7 @@ class ModalsController {
     //   this.categorie=response.data.categories;
     // });
     this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    $scope.showAdvanced = function (ev, obj) {
+    $scope.showAdvanced = function(ev, obj) {
       $mdDialog.show({
         locals: {
           categorie: obj
