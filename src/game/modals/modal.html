@@ -9,8 +9,16 @@
             </div>
         </md-toolbar>
         <md-dialog-content>
-            <div class="md-dialog-content">
+            <div ng-if="categorie!='All'" class="md-dialog-content">
               <h1>{{ categorie }}</h1>
+              <h2>{{ budget }}</h2>
+            </div>
+            <div ng-if="categorie=='All'" class="md-dialog-content">
+              <md-slider-container ng-repeat="categorie in categories">
+                <span>{{ categorie.libelle }}</span>
+                <md-slider flex min="O" max="100" ng-model="categorie.budget" aria-label="{{ categorie }}" id="{{categorie}}-slider">
+                </md-slider>
+              </md-slider-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
