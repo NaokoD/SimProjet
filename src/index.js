@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ui.router', 'ngMaterial','chart.js']);
+  .module('app', ['ui.router', 'ngMaterial', 'chart.js']);
