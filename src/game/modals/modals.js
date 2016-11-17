@@ -32,7 +32,7 @@ class ModalsController {
 class DialogController {
   constructor($scope, $mdDialog, categorie) {
     $scope.categorie = categorie;
-    $scope.budgets = 14000;
+    $scope.budgets = 25;
     // $http.get('/categories').then(function(response){
     //   this.categorie=response.data.categories;
     // });
