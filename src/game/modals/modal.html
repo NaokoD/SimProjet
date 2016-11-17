@@ -16,8 +16,11 @@
       <div ng-if="categorie=='All'" class="md-dialog-content">
         <md-slider-container ng-repeat="categorie in categories">
           <span>{{ categorie.libelle }}</span>
-          <md-slider flex min="O" max="100" ng-model="categorie.budget" aria-label="{{ categorie }}" id="{{categorie}}-slider">
+          <md-slider flex="" min="O" max="100" ng-model="categorie.budget" aria-label="{{ categorie.libelle }}" id="{{ categorie.libelle }}-slider">
           </md-slider>
+          <md-input-container>
+            <input flex="" type="number" ng-model="categorie.budget" aria-label="{{ categorie.libelle }}" aria-controls="{{ categorie.libelle }}-slider">
+          </md-input-container>
         </md-slider-container>
       </div>
     </md-dialog-content>
