@@ -1,12 +1,11 @@
 /* eslint-env es6*/
 class ModalsController {
   /** @ngInject */
-  constructor($mdDialog, $document, $scope, $http) {
+  constructor($mdDialog, $document, $http) {
     this.$mdDialog=$mdDialog;
     this.$document=$document;
     this.$http=$http;
     this.status ='';
-    this.$scope=$scope;
     this.customFullscreen = false;
     this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
     console.log("constructor modalscontroller");
@@ -23,11 +22,12 @@ class ModalsController {
           categorie: obj
         },
         controller: DialogController,
+        controllerAs: 'mod',
         templateUrl: 'game/modals/modal.html',
         parent: this.$document[0].body,
         targetEvent: ev,
         clickOutsideToClose: true,
-        fullscreen: this.$scope.customFullscreen // Only for -xs, -sm breakpoints.
+        fullscreen: this.customFullscreen // Only for -xs, -sm breakpoints.
       });
       // .then(function (answer) {
       //   this.status = 'You said the information was "' + answer + '".';
