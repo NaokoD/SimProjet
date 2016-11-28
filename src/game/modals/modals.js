@@ -2,41 +2,51 @@
 class ModalsController {
   /** @ngInject */
   constructor($mdDialog, $document, $scope, $http) {
-    this.status = '  ';
+    this.$mdDialog=$mdDialog;
+    this.$document=$document;
+    this.$http=$http;
+    this.status ='';
+    this.$scope=$scope;
     this.customFullscreen = false;
+    this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
+    console.log("constructor modalscontroller");
+  }
+    // status = '';
+    // customFullscreen = false;
     // $http.get('/categories').then(function(response){
     //   this.categorie=response.data.categories;
     // });
-    this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    $scope.showAdvanced = function (ev, obj) {
-      $mdDialog.show({
+    // categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
+    showAdvanced (ev, obj) {
+      this.$mdDialog.show({
         locals: {
           categorie: obj
         },
         controller: DialogController,
         templateUrl: 'game/modals/modal.html',
-        parent: $document[0].body,
+        parent: this.$document[0].body,
         targetEvent: ev,
         clickOutsideToClose: true,
-        fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+        fullscreen: this.$scope.customFullscreen // Only for -xs, -sm breakpoints.
       });
       // .then(function (answer) {
       //   this.status = 'You said the information was "' + answer + '".';
       // }, function () {
       //   this.status = 'You cancelled the dialog.';
       // });
-    };
-  }
+    }
+
 }
 
 class DialogController {
-  constructor($scope, $mdDialog, categorie) {
-    $scope.categorie = categorie;
-    $scope.budgets = 25;
+  constructor($mdDialog, categorie) {
+    this.categorie = categorie;
+    this.budgets = 25;
+    this.$mdDialog = $mdDialog;
     // $http.get('/categories').then(function(response){
     //   this.categorie=response.data.categories;
     // });
-    $scope.categories = [{
+    this.categories = [{
       libelle: 'Education',
       budget: 50
     }, {
@@ -46,16 +56,18 @@ class DialogController {
       libelle: 'Securite',
       budget: 20
     }];
-    $scope.hide = function () {
-      $mdDialog.hide();
-    };
-    $scope.cancel = function () {
-      $mdDialog.cancel();
-    };
-    $scope.answer = function (answer) {
-      $mdDialog.hide(answer);
-    };
+    console.log("Contruction DialogController");
+    console.log(categorie);
   }
+    hide () {
+      this.$mdDialog.hide();
+    }
+    cancel () {
+      this.$mdDialog.cancel();
+    }
+    answer (answer) {
+      this.$mdDialog.hide(answer);
+    }
 }
 
 angular

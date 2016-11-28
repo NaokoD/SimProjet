@@ -3,25 +3,25 @@
     <md-toolbar>
       <div class="md-toolbar-tools">
         <span flex>{{ categorie }}</span>
-        <md-button class="md-icon-button" ng-click="cancel()">
+        <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
           <md-icon md-svg-src="/game/static/img/close.svg" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div ng-if="categorie!='All'" class="md-dialog-content">
+      <div ng-if="$ctrl.categorie!='All'" class="md-dialog-content">
         <!-- <h1>{{ categorie }}</h1> -->
         <md-slider-container>
           <span></span>
-          <md-slider flex="" min="O" max="100" ng-model="budgets" aria-label="{{ categorie }}" id="{{ categorie }}-slider" class="md-primary">
+          <md-slider flex="" min="O" max="100" ng-model="$ctrl.budgets" aria-label="{{ categorie }}" id="{{ categorie }}-slider" class="md-primary">
           </md-slider>
           <md-input-container>
-            <input flex="" type="number" ng-model="budgets" aria-label="{{ categorie }}" aria-controls="{{ categorie }}-slider">
+            <input flex="" type="number" ng-model="$ctrl.budgets" aria-label="{{ categorie }}" aria-controls="{{ categorie }}-slider">
           </md-input-container>
         </md-slider-container>
       </div>
-      <div ng-if="categorie=='All'" class="md-dialog-content">
-        <md-slider-container ng-repeat="x in categories">
+      <div ng-if="$ctrl.categorie=='All'" class="md-dialog-content">
+        <md-slider-container ng-repeat="x in $ctrl.categories">
           <span>{{ x.libelle }}</span>
           <md-slider flex="" min="O" max="100" ng-model="x.budget" aria-label="{{ x.libelle }}" id="{{ x.libelle }}-slider" class="md-primary">
           </md-slider>
