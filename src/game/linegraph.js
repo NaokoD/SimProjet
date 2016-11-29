@@ -44,6 +44,6 @@ class LineCtrl {
 
 angular
   .module('app')
-  .component('modalGraph', {
-    templateUrl: 'game/graph.html'
+  .component('modalLinegraph', {
+    templateUrl: 'game/linegraph.html'
   });
