@@ -2,39 +2,39 @@
 class ModalsController {
   /** @ngInject */
   constructor($mdDialog, $document, $http) {
-    this.$mdDialog=$mdDialog;
-    this.$document=$document;
-    this.$http=$http;
-    this.status ='';
-    this.customFullscreen = false;
-    this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    console.log("constructor modalscontroller");
-  }
+      this.$mdDialog = $mdDialog;
+      this.$document = $document;
+      this.$http = $http;
+      this.status = '';
+      this.customFullscreen = false;
+      this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
+      console.log("constructor modalscontroller");
+    }
     // status = '';
     // customFullscreen = false;
     // $http.get('/categories').then(function(response){
     //   this.categorie=response.data.categories;
     // });
     // categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
-    showAdvanced (ev, obj) {
-      this.$mdDialog.show({
-        locals: {
-          categorie: obj
-        },
-        controller: DialogController,
-        controllerAs: 'mod',
-        templateUrl: 'game/modals/modal.html',
-        parent: this.$document[0].body,
-        targetEvent: ev,
-        clickOutsideToClose: true,
-        fullscreen: this.customFullscreen // Only for -xs, -sm breakpoints.
-      });
-      // .then(function (answer) {
-      //   this.status = 'You said the information was "' + answer + '".';
-      // }, function () {
-      //   this.status = 'You cancelled the dialog.';
-      // });
-    }
+  showAdvanced(ev, obj) {
+    this.$mdDialog.show({
+      locals: {
+        categorie: obj
+      },
+      controller: DialogController,
+      controllerAs: 'mod',
+      templateUrl: 'game/modals/modal.html',
+      parent: this.$document[0].body,
+      targetEvent: ev,
+      clickOutsideToClose: true,
+      fullscreen: this.customFullscreen // Only for -xs, -sm breakpoints.
+    });
+    // .then(function (answer) {
+    //   this.status = 'You said the information was "' + answer + '".';
+    // }, function () {
+    //   this.status = 'You cancelled the dialog.';
+    // });
+  }
 
 }
 
@@ -59,15 +59,15 @@ class DialogController {
     console.log("Contruction DialogController");
     console.log(categorie);
   }
-    hide () {
-      this.$mdDialog.hide();
-    }
-    cancel () {
-      this.$mdDialog.cancel();
-    }
-    answer (answer) {
-      this.$mdDialog.hide(answer);
-    }
+  hide() {
+    this.$mdDialog.hide();
+  }
+  cancel() {
+    this.$mdDialog.cancel();
+  }
+  answer(answer) {
+    this.$mdDialog.hide(answer);
+  }
 }
 
 angular
