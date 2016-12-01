@@ -7,15 +7,16 @@ class ModalsController {
       this.$http = $http;
       this.status = '';
       this.customFullscreen = false;
-      this.categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
+      this.categories = this.getAll();
       console.log("constructor modalscontroller");
     }
-    // status = '';
-    // customFullscreen = false;
-    // $http.get('/categories').then(function(response){
-    //   this.categorie=response.data.categories;
-    // });
-    // categories = ['Education', 'Sante', 'Securite', 'Mission', 'All'];
+
+  getAll() {
+    return $http.get(url + "/categories").then(function (response) {
+      return response.data.success;
+    })
+  };
+
   showAdvanced(ev, obj) {
     this.$mdDialog.show({
       locals: {
@@ -29,36 +30,20 @@ class ModalsController {
       clickOutsideToClose: true,
       fullscreen: this.customFullscreen // Only for -xs, -sm breakpoints.
     });
-    // .then(function (answer) {
-    //   this.status = 'You said the information was "' + answer + '".';
-    // }, function () {
-    //   this.status = 'You cancelled the dialog.';
-    // });
   }
-
 }
 
 class DialogController {
-  constructor($mdDialog, categorie) {
+  constructor($mdDialog, categorie, $http) {
     this.categorie = categorie;
     this.budgets = 25;
     this.$mdDialog = $mdDialog;
-    // $http.get('/categories').then(function(response){
-    //   this.categorie=response.data.categories;
-    // });
-    this.categories = [{
-      libelle: 'Education',
-      budget: 50
-    }, {
-      libelle: 'Sante',
-      budget: 20
-    }, {
-      libelle: 'Securite',
-      budget: 20
-    }];
+    this.$http=$http;
+    this.categories = ModalsController.getAll();
     console.log("Contruction DialogController");
     console.log(categorie);
   }
+
   hide() {
     this.$mdDialog.hide();
   }
@@ -68,6 +53,8 @@ class DialogController {
   answer(answer) {
     this.$mdDialog.hide(answer);
   }
+
+
 }
 
 angular
