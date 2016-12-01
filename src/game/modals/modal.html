@@ -23,10 +23,10 @@
       <div ng-if="mod.categorie=='All'" class="md-dialog-content">
         <md-slider-container ng-repeat="x in mod.categories">
           <span>{{ x.libelle }}</span>
-          <md-slider flex="" min="O" max="100" ng-model="x.budget" aria-label={{ x.libelle }} id="{{ x.libelle }}-slider" class="md-primary">
+          <md-slider flex="" min="O" max="100" ng-model="x.budget" aria-label="{{ x.libelle }}" id="{{ x.libelle }}-slider" class="md-primary">
           </md-slider>
           <md-input-container>
-            <input flex="" type="number" ng-model="x.budget" aria-label={{ x.libelle }} aria-controls="{{ x.libelle }}-slider">
+            <input flex="" type="number" ng-model="x.budget" aria-label="{{ x.libelle }}" aria-controls="{{ x.libelle }}-slider">
           </md-input-container>
         </md-slider-container>
       </div>
