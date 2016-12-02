@@ -72,8 +72,6 @@ class DialogController {
       return response.data.success;
     })
   };
-
-
 }
 
 angular
