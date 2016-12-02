@@ -2,14 +2,14 @@
 class ModalsController {
   /** @ngInject */
   constructor($mdDialog, $document, $http) {
-      this.$mdDialog = $mdDialog;
-      this.$document = $document;
-      this.$http = $http;
-      this.status = '';
-      this.customFullscreen = false;
-      this.categories = this.getAll();
-      console.log("constructor modalscontroller");
-    }
+    this.$mdDialog = $mdDialog;
+    this.$document = $document;
+    this.$http = $http;
+    this.status = '';
+    this.customFullscreen = false;
+    this.categories = this.getAll();
+    console.log("constructor modalscontroller");
+  }
 
   getAll() {
     return $http.get(url + "/categories").then(function (response) {
@@ -35,24 +35,43 @@ class ModalsController {
 
 class DialogController {
   constructor($mdDialog, categorie, $http) {
-    this.categorie = categorie;
+    this.categorie = {};
+    this.categorie = get(categorie);
     this.budgets = 25;
     this.$mdDialog = $mdDialog;
-    this.$http=$http;
+    this.$http = $http;
     this.categories = ModalsController.getAll();
-    console.log("Contruction DialogController");
+    console.log("Construction DialogController");
     console.log(categorie);
   }
 
   hide() {
     this.$mdDialog.hide();
   }
+
   cancel() {
     this.$mdDialog.cancel();
   }
+
   answer(answer) {
     this.$mdDialog.hide(answer);
   }
+
+  get(x) {
+    return $http.get(url + "/" + x).then(function (response) {
+      return response.data.success;
+    })
+  };
+
+  total(x) {
+
+  }
+
+  getBudget(x) {
+    return $http.get(url + "/backupconstructions?constructions=" + categorie.id).then(function (response) {
+      return response.data.success;
+    })
+  };
 
 
 }

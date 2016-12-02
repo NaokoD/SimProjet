@@ -1,4 +1,9 @@
 <div>
-
-
+  <form id="myForm">
+    <label for="login">Username</label>
+    <input type="text" ng-model="user.login" name="login" id="login"/>
+    <label for="password">Password</label>
+    <input type="password" ng-model="user.password" name="password" id="password"/>
+    <input type="button" ng-click="$ctrl.send" value="Send"/>
+  </form>
 </div>
