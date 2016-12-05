@@ -1,5 +1,6 @@
-<div class="md-padding" id="popupContainer" layout="row" ng-cloak>
+<div class="md-padding" id="popupContainer" layout="row" ng-cloak ng-init=$ctrl.getAll()>
   <div ng-repeat="categorie in $ctrl.categories" categorie="categorie" flex="10">
-    <md-button class="md-raised md-primary" ng-click="$ctrl.showAdvanced($event, categorie)">{{ categorie }}</md-button>
+    <md-button class="md-raised md-primary" ng-if="categorie.libelle=='distraction'">{{ categorie.libelle }}</md-button>
+    <md-button class="md-raised md-primary" ng-if="categorie.libelle!='distraction'"ng-click="$ctrl.showAdvanced($event, categorie)">{{ categorie.libelle }}</md-button>
   </div>
 </div>

@@ -1,14 +1,27 @@
 class LoginController {
-  constructor($http, $location) {
+  constructor($http, $window) {
     this.$http = $http;
     this.user = {};
+    this.$window = $window;
   }
 
+
+
   send() {
-    this.user = $http.post(url + "/users?login=" + user.login + "&token=" + user.password).then(function (response) {
-      user=response.headers().success;
+    let that = this;
+    this.$http.get(url + "/users?login=" + this.user.login + "&token=" + this.user.password + "&backup=1").then(function(response) {
+      that.setUserId(response.data.succes.id);
+      that.relocation();
+    }, function(response) {
+      console("failed");
     });
-    $location.path('/'+appurl).replace();
+  }
+
+relocation(){
+  this.$window.location.href = "/game";
+}
+  setUserId(obj) {
+    this.user.id = obj;
   }
 }
 
