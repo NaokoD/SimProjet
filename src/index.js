@@ -4,7 +4,13 @@ angular
     return function(input) {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     };
-  });
+  })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('docs-dark', 'default')
+      .primaryPalette('yellow')
+      .dark();
+    });
+
 
 
 var url = "http://localhost:8080/serverSimPol";

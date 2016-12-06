@@ -1,9 +1,26 @@
-<div id="sign" layout="column" layout-wrap layout-margin layout-align="center center">
-  <form id="myForm">
+<div id="sign" layout="column" layout-nowrap  layout-align="center center" ng-cloak class="md-inline-form">
+  <md-content class="md-no-momentum" layout-padding>
+    <md-input-container class="md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Username</label>
+      <input ng-model="$ctrl.user.login" type="text">
+    </md-input-container>
+    <md-input-container class="md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Password</label>
+      <input ng-model="$ctrl.user.password" type="text">
+    </md-input-container>
+    <md-input-container class="md-block">
+      <!-- Use floating label instead of placeholder -->
+      <input type="button" ng-click="$ctrl.send($ctrl.checkUser())" value="Send">
+    </md-input-container>
+  </md-content>
+
+  <!-- <form id="myForm">
     <div><label for="login">Username</label></div>
     <div><input type="text" ng-model="$ctrl.user.login" name="login" id="login"/></div>
     <div><label for="password">Password</label></div>
     <div><input type="password" ng-model="$ctrl.user.password" name="password" id="password"/></div>
     <div><input type="button" ng-click="$ctrl.send($ctrl.checkUser())" value="Send"/></div>
-  </form>
+  </form> -->
 </div>
