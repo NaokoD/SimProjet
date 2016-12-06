@@ -2,34 +2,29 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <span flex>{{ mod.categorie.libelle }}</span>
+        <span flex>{{mod.categorie.libelle}}</span>
         <md-button class="md-icon-button" ng-click="mod.cancel()">
           <md-icon md-svg-src="/game/static/img/close.svg" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div ng-if="mod.categorie.libelle!='All'" class="md-dialog-content">
-        <!-- <h1>{{ categorie }}</h1> -->
+      <div class="md-dialog-content">
         <md-slider-container>
           <span></span>
-          <md-slider flex="" min="O" max="100" ng-model="mod.catgegorie.budget" aria-label="mod.categorie.libelle" id="{{ mod.categorie.libelle }}-slider" class="md-primary">
+          <md-slider flex min="0" max="100" ng-model="mod.categorie.budget" aria-label="red" id="red-slider" class="md-primary">>
           </md-slider>
           <md-input-container>
-            <input flex="" type="number" ng-model="mod.categorie.budget" aria-label="mod.categorie.libelle" aria-controls="{{ mod.categorie.libelle }}-slider">
+            <input flex type="number" ng-model="mod.categorie.budget" aria-label="red" aria-controls="red-slider">
           </md-input-container>
         </md-slider-container>
       </div>
-      <div ng-if="mod.categorie.libelle=='All'" class="md-dialog-content">
-        <md-slider-container ng-repeat="x in mod.categories">
-          <span>{{ x.libelle }}</span>
-          <md-slider flex="" min="O" max="100" ng-model="x.budget" aria-label="{{ x.libelle }}" id="{{ x.libelle }}-slider" class="md-primary">
-          </md-slider>
-          <md-input-container>
-            <input flex="" type="number" ng-model="x.budget" aria-label="{{ x.libelle }}" aria-controls="{{ x.libelle }}-slider">
-          </md-input-container>
-        </md-slider-container>
-      </div>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <span flex>Evolution</span>
+        </div>
+      </md-toolbar>
+      <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick" </canvas>
     </md-dialog-content>
     <md-dialog-actions layout="row">
     </md-dialog-actions>

@@ -6,4 +6,6 @@ var url = "http://localhost:8080/serverSimPol";
 // "http://vps337131.ovh.net:8080/serverSimPol";
 var appurl = "game/";
 
-var caturl = "?login=user1&token=0000&backup=1";
+var caturl = "?login=user1&token=0000&backup=1&all=1";
+
+var histurl = "?login=user1&token=0000&backup=1&all=0";
