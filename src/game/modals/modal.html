@@ -2,7 +2,7 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <span flex>{{mod.categorie.libelle}}</span>
+        <span flex>{{mod.categorie.libelle | capitalize}}</span>
         <md-button class="md-icon-button" ng-click="mod.cancel()">
           <md-icon md-svg-src="/game/static/img/close.svg" aria-label="Close dialog"></md-icon>
         </md-button>
@@ -24,7 +24,7 @@
           <span flex>Evolution</span>
         </div>
       </md-toolbar>
-      <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick" </canvas>
+      <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="mod.series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick" </canvas>
     </md-dialog-content>
     <md-dialog-actions layout="row">
     </md-dialog-actions>

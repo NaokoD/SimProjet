@@ -1,5 +1,10 @@
 angular
-  .module('app', ['ui.router', 'ngMaterial', 'chart.js']);
+  .module('app', ['ui.router', 'ngMaterial', 'chart.js'])
+  .filter('capitalize', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    };
+  });
 
 
 var url = "http://localhost:8080/serverSimPol";

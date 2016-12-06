@@ -29,7 +29,7 @@ class ModalsController {
   setCategories(x) {
     let that = this;
     console.log(x);
-    x.then(function(succes){
+    x.then(function(succes) {
       console.log(succes);
       that.categories = succes;
     });
@@ -44,11 +44,11 @@ class ModalsController {
     });
   }
 
-    // .then(function (response) {
-    //   console.log(response);
-    //   console.log(response.data.succes);
-    //   return response.data.succes;
-    // });
+  // .then(function (response) {
+  //   console.log(response);
+  //   console.log(response.data.succes);
+  //   return response.data.succes;
+  // });
 
 
   showAdvanced(ev, obj) {
@@ -76,6 +76,7 @@ class DialogController {
     this.$http = $http;
     this.labels = [];
     this.series = [];
+    this.data = [];
     // this.categories = ModalsController.setCategories(ModalsController.getAll());
     console.log("Construction DialogController");
     console.log(this.categories);
@@ -84,10 +85,6 @@ class DialogController {
     this.getSeries(this.get(categorie));
     console.log(this.series);
     this.categorie.budget = 50;
-    this.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
-    ];
     this.datasetOverride = [{
       yAxisID: 'y-axis-1'
     }, {
@@ -109,7 +106,7 @@ class DialogController {
       }
     };
   }
-  onClick(points, evt){
+  onClick(points, evt) {
     console.log(points, evt);
   }
 
@@ -126,15 +123,15 @@ class DialogController {
   }
 
   setLabels(x) {
-      console.log("set Labels");
-      this.labels = x;
-      console.log(this.labels);
-     }
+    console.log("set Labels");
+    this.labels = x;
+    console.log(this.labels);
+  }
 
-  setDialCategorie(x){
+  setDialCategorie(x) {
     let that = this;
     console.log("setDialCategorie");
-    x.then(function(succes){
+    x.then(function(succes) {
       that.dialCategorie = succes;
       console.log(succes);
     });
@@ -190,19 +187,18 @@ class DialogController {
 
   getSeries(x) {
     let that = this;
-    x.then(function(succes){
+    x.then(function(succes) {
       // console.log("getKeysFrom" + succes);
       // console.log(succes);
       console.log(Object.keys(succes));
-      that.series=Object.keys(succes);
-  });
-  }
-
-  getData(x) {
-      let that = this;
-      x.then(function(succes){
-        that.data= null;
-      });
+      that.series = Object.keys(succes);
+      let id = that.series.indexOf("id");
+      that.series.splice(id, 1);
+      console.log(id);
+      let backup = that.series.indexOf("backup");
+      that.series.splice(backup, 1);
+      console.log(that.series);
+    });
   }
 
 }
